@@ -7,6 +7,7 @@ import GHC.Types
 
 embed GHC.Types.Int      as int
 embed Prop               as bool
+embed GHC.Types.Bool     as bool 
 
 measure Prop   :: GHC.Types.Bool -> Prop
 
@@ -29,6 +30,10 @@ snd (a,b) = b
 
 qualif Fst(v:a, y:b): (v = (fst y))
 qualif Snd(v:a, y:b): (v = (snd y))
+
+qualif IsEmp(v:GHC.Types.Bool, xs: [a]) : (Prop(v) <=> len([xs]) > 0)
+qualif IsEmp(v:GHC.Types.Bool, xs: [a]) : (Prop(v) <=> len([xs]) = 0)
+
 
 
 invariant {v: [a] | len(v) >= 0 }

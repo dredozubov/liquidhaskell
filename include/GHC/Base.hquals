@@ -10,9 +10,6 @@
 // qualif LenAcc(v:int, ~A:[a], ~B: int): v = len([~A]) + ~B
 // qualif LenDiff(v:[a], ~A:int): len([v]) = (~A [ +; - ] 1)
 
-qualif IsEmp(v:GHC.Types.Bool, xs: [a]) : (Prop(v) <=> len([xs]) > 0)
-qualif IsEmp(v:GHC.Types.Bool, xs: [a]) : (Prop(v) <=> len([xs]) = 0)
-
 qualif ListZ(v: [a])          : (len([v]) =  0) 
 qualif ListZ(v: [a])          : (len([v]) >= 0) 
 qualif ListZ(v: [a])          : (len([v]) >  0) 

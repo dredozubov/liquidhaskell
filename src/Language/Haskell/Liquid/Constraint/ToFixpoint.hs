@@ -16,6 +16,7 @@ import           Language.Haskell.Liquid.Constraint.Qualifier
 cgInfoFInfo :: GhcInfo -> CGInfo -> FilePath -> IO (F.FInfo Cinfo)
 cgInfoFInfo info cgi fi = do
   let tgtFI = targetFInfo info cgi fi
+  -- NV: This is dangerous: sorts in quals are not transformed via embed
   impFI    <- parseFInfo $ hqFiles info
   return    $ tgtFI <> impFI
 

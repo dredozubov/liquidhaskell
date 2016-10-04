@@ -11,6 +11,7 @@ import Data.Foldable
 import Data.Maybe
 import GHC.Exts
 
+embed GHC.Types.Bool as bool 
 
 GHC.Exts.D# :: x:_ -> {v:_ | v = x}
 
@@ -46,3 +47,7 @@ predicate Max V X Y = if X > Y then V = X else V = Y
 predicate Min V X Y = if X < Y then V = X else V = Y
 
 type IncrListD a D = [a]<{\x y -> (x+D) <= y}>
+
+
+qualif True1(v:GHC.Types.Bool)   : (Prop(v))
+qualif False1(v:GHC.Types.Bool)  : (~ Prop(v))

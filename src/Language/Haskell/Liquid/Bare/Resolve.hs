@@ -109,7 +109,7 @@ instance Resolvable Sort where
     | otherwise           = do ty     <- lookupGhcTyCon tcs
                                emb    <- embeds <$> get
                                let ftc = symbolFTycon $ Loc l l' $ symbol ty
-                               return  $ FTC $ fromMaybe ftc (M.lookup ty emb)
+                               return $ FTC $ fromMaybe ftc (M.lookup ty emb)
     where
       tcs@(Loc l l' tcs') = fTyconSymbol c
   resolve l (FApp t1 t2) = FApp <$> resolve l t1 <*> resolve l t2

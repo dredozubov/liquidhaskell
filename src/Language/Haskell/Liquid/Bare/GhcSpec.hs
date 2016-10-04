@@ -136,6 +136,7 @@ makeGhcSpec' cfg cbs instenv vars defVars exports specs
   = do name          <- modName <$> get
        makeRTEnv  specs
        (tycons, datacons, dcSs, recSs, tyi, embs) <- makeGhcSpecCHOP1 instenv cfg specs
+       setEmbeds embs 
        makeBounds embs name defVars cbs specs
        modify                                   $ \be -> be { tcEnv = tyi }
        (cls, mts)                              <- second mconcat . unzip . mconcat <$> mapM (makeClasses name cfg vars) specs
