@@ -268,8 +268,8 @@ lemma10_zero l x
 
 {-@ lemma10_one :: x:Nat -> { ack 1 x == 2 + 2 * x} @-}
 lemma10_one :: Int -> Proof
-lemma10_one x
-  | x == 0
+lemma10_one x = undefined 
+{-   | x == 0
   = ack 1 0 ==. 2 *** QED
   | otherwise
   =    ack 1 x ==. ack 0 (ack 1 (x-1))
@@ -277,7 +277,7 @@ lemma10_one x
                ==. 2 + (2 + 2 * (x-1))  ? lemma10_one (x-1)
                ==. 2 + 2 * x
                *** QED
-
+-}
 
 lemma10_helper :: Int -> Int -> Int -> Proof
 {-@ lemma10_helper :: n:Nat -> x:{Int | 0 < x } -> l:{Nat | 2 * l < x && x-l >=0}
