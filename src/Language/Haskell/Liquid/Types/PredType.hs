@@ -395,7 +395,7 @@ substParg (x, y) = fmap fp
 -----------------------------  Predicate Application --------------------------
 -------------------------------------------------------------------------------
 pappArity :: Int
-pappArity  = 7
+pappArity  = 8
 
 pappSort :: Int -> Sort
 pappSort n = mkFFunc (2 * n) $ [ptycon] ++ args ++ [boolSort]

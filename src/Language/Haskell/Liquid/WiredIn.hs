@@ -93,7 +93,7 @@ propType = RApp (RTyCon propTyCon [] defaultTyConInfo) [] [] mempty
 --------------------------------------------------------------------
 
 maxArity :: Arity
-maxArity = 7
+maxArity = 8
 
 wiredTyCons :: [(TyCon, TyConP)]
 wiredTyCons     = fst wiredTyDataCons
